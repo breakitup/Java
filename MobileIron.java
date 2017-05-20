@@ -9,21 +9,23 @@ public class MobileIron {
 		while (sc.hasNextLine()) {
 			String line = sc.nextLine();
 			int offset = 0;
-			String type = line.substring(offset, offset + processTypeLength);
-			offset += processTypeLength + 1;
-			int length = Integer.parseInt(line.substring(offset, offset + 4));
-			offset += processValueLength + 1;
-			String value = line.substring(offset, offset + length);
-			offset += length + 1;
-			switch (type) {
-			case "UPPRCS":
-				System.out.println("UPPRCS-" + value.toUpperCase());
-				break;
-			case "REPLCE":
-				System.out.println("REPLCE-THIS STRING");
-				break;
-			default:
-				System.out.println("Type not valid");
+			while (offset < line.length()) {
+				String type = line.substring(offset, offset + processTypeLength);
+				offset += processTypeLength + 1;
+				int length = Integer.parseInt(line.substring(offset, offset + processValueLength));
+				offset += processValueLength + 1;
+				String value = line.substring(offset, offset + length);
+				offset += length ;
+				switch (type) {
+				case "UPPRCS":
+					System.out.println("UPPRCS-" + value.toUpperCase());
+					break;
+				case "REPLCE":
+					System.out.println("REPLCE-THIS STRING");
+					break;
+				default:
+					System.out.println("Type not valid");
+				}
 			}
 		}
 	}
