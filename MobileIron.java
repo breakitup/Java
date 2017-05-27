@@ -17,13 +17,13 @@ public class MobileIron {
 				String value = line.substring(offset, offset + length);
 				offset += length ;
 				switch (type) {
-				case "UPPRCS":
+					case "UPPRCS":
 					System.out.println("UPPRCS-" + value.toUpperCase());
 					break;
-				case "REPLCE":
+					case "REPLCE":
 					System.out.println("REPLCE-THIS STRING");
 					break;
-				default:
+					default:
 					System.out.println("Type not valid");
 				}
 			}
