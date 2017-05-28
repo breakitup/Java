@@ -16,5 +16,9 @@ class LearnMultiThreading extends Thread{
 		LearnMultiThreading t2=new LearnMultiThreading();
 		t1.start();
 		t2.start();
+		Thread t3=new Thread(new LearnMultiThreading());
+		Thread t4=new Thread(new LearnMultiThreading());
+		t3.start();
+		t4.start();
 	}
 }
