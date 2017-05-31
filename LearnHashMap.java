@@ -10,15 +10,15 @@ class LearnHashMap{
 		LearnHashMap o1=new LearnHashMap();
 		LearnHashMap o2=new LearnHashMap();
 		HashMap<LearnHashMap,Integer> m= new HashMap<LearnHashMap,Integer>();
-		m.put(null,1);
-		m.put(null,2);
-		o1=null;
-		//o2=null;
-		System.out.println(m.get(null));
-		ArrayList<Integer> al=new ArrayList<Integer>();
-		int a=5;
-		//o2.fun(a);
-		al.add(a);
-		System.out.println(al.get(0).getClass());
-	}
+		try{
+			int x=0;
+			int y=5/x;
+		}
+		catch(Exception e){
+			System.out.println("Exception");
+		}
+		catch(ArithmeticException e){
+			System.out.println(" Arithmetic Exception");
+		}
+}
 }
