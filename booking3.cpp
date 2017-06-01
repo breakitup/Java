@@ -16,10 +16,10 @@ int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */
     int arr[1000000],i,n;
     while (!cin.eof())
-{
-    cin>>arr[i++];
-}
-        n=i;
+    {
+        cin>>arr[i++];
+    }
+    n=i;
     cout<<arr[0]<<" ";
     for(int i=1;i<n;i++){
         int diff=arr[i]-arr[i-1];

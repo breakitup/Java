@@ -1,25 +1,11 @@
 #include <map>
 #include <set>
-#include <list>
-#include <cmath>
-#include <ctime>
-#include <deque>
-#include <queue>
-#include <stack>
-#include <string>
-#include <bitset>
-#include <cstdio>
-#include <limits>
-#include <vector>
-#include <climits>
-#include <cstring>
-#include <cstdlib>
-#include <fstream>
-#include <numeric>
-#include <sstream>
+#include<unordered_set>
 #include <iostream>
 #include <algorithm>
+#include<string>
 #include <unordered_map>
+using namespace std;
 
 struct node{
     int id;
@@ -33,13 +19,13 @@ bool compare(node a,node b){
         return 0;
 }
 
-using namespace std;
+
 int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */
     string words,reviews;
     int n,id;
     map<string,int> m;
-    cin>>words;
+    getline(cin,words);
     int l=words.length();
     for(int i=0;i<l;){
         string tmp;
@@ -51,40 +37,43 @@ int main() {
         }
         tmp=words.substr(i,count);
         m[tmp]=1;
-        i=j++;
+        j++;
+        i=j;
     }
     map< int, int> reviewcount;
     set<int>s;
+    cin>>n;
     while(n--){
         cin>>id;
         s.insert(id);
-        cin>>reviews;
+        getline(cin,reviews);
         int r=reviews.length();
-    for(int i=0;i<r;){
-        string tmp;
-        int j=i;
-        int count=0;
-        while(j<l && reviews[j]!=' '){
-            count++;
-            j++;
-        }
-        tmp=reviews.substr(i,count);
-        if(m.count(tmp)){
-            if(reviewcount.count(id)){
-                reviewcount[id]++;
+        for(int i=0;i<r;){
+            string tmp;
+            int j=i;
+            int count=0;
+            while(j<l && reviews[j]!=' '){
+                count++;
+                j++;
             }
-            else
-                reviewcount[id]=1;
+            tmp=reviews.substr(i,count);
+            if(m.count(tmp)){
+                if(reviewcount.count(id)){
+                    reviewcount[id]++;
+                }
+                else
+                    reviewcount[id]=1;
+            }
+            j++;
+            i=j;
         }
-        i=j++;
-    }
     }
     node arr[s.size()+1];
-    set<int>::iterator it;
+    set <int>::iterator it;
     int k=0;
     for(it=s.begin();it!=s.end();it++){
         arr[k].id=*it;
-            arr[k].count=reviewcount[*it];
+        arr[k].count=reviewcount[*it];
         k++;
     }
     sort(arr,arr+k,compare);
