@@ -46,13 +46,15 @@ int main() {
     while(n--){
         cin>>id;
         s.insert(id);
+        getchar();
         getline(cin,reviews);
+        //cout<<reviews<<endl;
         int r=reviews.length();
         for(int i=0;i<r;){
             string tmp;
             int j=i;
             int count=0;
-            while(j<l && reviews[j]!=' '){
+            while(j<r && reviews[j]!=' '){
                 count++;
                 j++;
             }
