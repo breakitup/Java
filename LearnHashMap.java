@@ -10,6 +10,7 @@ class LearnHashMap{
 		LearnHashMap o1=new LearnHashMap();
 		LearnHashMap o2=new LearnHashMap();
 		HashMap<LearnHashMap,Integer> m= new HashMap<LearnHashMap,Integer>();
+	
 		try{
 			int x=0;
 			int y=5/x;
